@@ -1,41 +1,50 @@
-<html>
-	<head><meta charset="utf-8" /></head>
+
+<head>
+	<title>dodge charger 69</title>
+	<meta charset="utf-8" />
+</head>
 <body>
-	<div id = "app">
-	<input type = "text" />
-	<p>{{message}}</p>
-	<button v-on:click = "DaEv">click</button>
-	<ul>
-    <li v-for="hell in posts">{{hell.title}}</li>
-    </ul>
+	<div id="app">
+	<input v-if="!checked" type="checkbox" id="checkbox" v-model="checked">
+	<label v-on:click = "hide1" for="checkbox1">{{!checked1?'Click me':''}}</label>
+	<input v-if="!checked1" type="checkbox" id="checkbox1" v-model="checked1">
+	<label v-on:click = "hide2" for="checkbox2">{{!checked2?'Click me':''}}</label>
+	<input v-if="!checked2" type="checkbox" id="checkbox2" v-model="checked2">
+	<label v-on:click = "hide" for="checkbox1">{{!checked?'Click me':''}}</label>
+	<div v-show="fair">
+	<img src="https://www.volvotrucks.com/content/dam/volvo/volvo-trucks/masters/euro-6/volvo-fh-series/i-shift/crawler-gear/1920x1440-crawler-gear-750-tonnes-crawler-gear.jpg/jcr:content/renditions/1920x1440-crawler-gear-750-tonnes-crawler-gear-hero-mobile@2.jpg"alt="">
+	</div>
+	<button v-on:click="fair=!fair">{{fair?'False':'True'}}</button>
+	<label v-for="name in hasl">{{name}}<input v-on:change="join(name)" type="checkbox" ></label>
+	<div>{{hadl}}</div>
 	</div>
 	<script src="https://unpkg.com/vue"></script>
 	<script>
-		var app = new Vue({
+		const app = new Vue({
 			el: '#app',
-			data:{
-				message:'Hello Vue!',posts:[]
-				},
-			methods:{
-			setMessage:
-			function(event){
-			this.message = event.target.value;
+			data: {
+				fair: true,
+				checked:false,
+				checked1:false,
+				checked2:false,
+				hadl:"",
+				hasl:["one","two","three"]
 			},
-			DaEv:async function () {
-			let response = await 
-			fetch('https://jsonplaceholder.typicode.com/posts')
-			let result = await response.json()
-			console.log(result)
-			this.posts = result
-		}
+			methods:{
+			hide:function() {
+			this.checked=!this.checked
+			},
+			hide1:function() {
+			this.checked1=!this.checked1
+			},
+			hide2:function() {
+			this.checked2=!this.checked2
+			},
+			join:function(name){
+			this.hadl=name
+			}
 			}
 		});
-	</script>
-	<script>
-		data: {
-			posts: []
-		}
-
-	</script>
+</script>
 </body>
 </html>
