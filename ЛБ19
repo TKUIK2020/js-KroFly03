@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>repl.it</title>
+  </head>
+    <body>
+      <div id="app">
+            <div>
+        <button>Calculate</button>
+      <input type="number" v-model="inputValue">
+      <ul>
+        <li v-on:click="click" :style="{'background-color':color}" v-for = "(ops,index) in array">
+<h1><span>{{base}}</span><sup>{{initialExp+index}}</sup> = {{ops}}</h1>
+</li>
+</ul>
+{{cicle()}}
+      </div>
+      </div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+var app = new Vue({
+	el:"#app",
+	data: {
+    inputValue:0,
+    base:2,
+    initialExp:10,
+    exp:5,
+    array:[],
+    color: "yellow"
+  },
+  methods: {
+    click:function(){
+          this.color = "red"
+    },
+    cicle:function () {
+      let i =0;
+      let mas = [];
+      while(i<this.inputValue) {
+        mas[i]=this.base ** (this.initialExp+i);
+        i++;
+      }
+      this.array = mas 
+    }
+}
+})
+</script>
+</body>
+</html>
